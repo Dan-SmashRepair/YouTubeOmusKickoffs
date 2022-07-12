@@ -76,6 +76,9 @@ class Omus(BaseAgent):
 
 
     def get_output(self, packet: GameTickPacket) -> SimpleControllerState:
+        # To add Omus kickoffs to your bot, add below code under a simple if statement like the following:
+        # if packet.game_ball.physics.location.x == 0 and packet.game_ball.physics.location.y == 0:
+        # else: 'your bot's code'
         cur_time = packet.game_info.seconds_elapsed
         delta = cur_time - self.prev_time
         self.prev_time = cur_time
